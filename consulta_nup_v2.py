@@ -15,14 +15,14 @@ if file is not None and file.name.startswith("Revisiones DAOP"):
   df2=df
 
   option = st.selectbox("Selecciona al ingeniero/a DAOP",
-    ("LLQ", "JGM", "PPV", "RSP", "CGL", "NGM", "JMB" , "RGD"), )
+    ("LLQ", "JGM", "PPV", "RSP", "CGL", "NGM", "JMB" , "RGD", "JPC", "DOL"), )
 
   columns=df.loc[0]
   df=df.rename(columns=dict(zip(df.columns, columns)))
 
   df=df.drop(0)
   df=df.reset_index(drop=True)
-  df=df.loc[~(df["Estado"]=="Respondido")&(df["Revisor"]==option)]
+  df=df.loc[~(df["Estado"]=="Respondido")&~(df["Fecha máxima DAOP (KPI)"]=="Falta fecha pre requisito")&(df["Revisor"]==option)]
   df2=pd.DataFrame()
   df2["Asunto"]=df["NUP"].astype(str)+" "+df["Nombre del Proyecto - Descripción"]+" - "+df["Tipo de Documento"]+" - Iter.N°"+df["N°de revisión"].astype(str)
   df2["Fecha de inicio"]=df["Fecha de recepción Coordinador"]
