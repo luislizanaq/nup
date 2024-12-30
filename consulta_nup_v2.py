@@ -16,7 +16,7 @@ if file is not None and file.name.startswith("Revisiones DAOP"):
 
     option = st.selectbox(
     "Selecciona al ingeniero/a DAOP",
-    ("LLQ", "JGM", "PPV", "RSP", "CGL", "NGM", "JMB" , "RGD", )
+    ("LLQ", "JGM", "PPV", "RSP", "CGL", "NGM", "JMB" , "RGD"), )
 
   columns=df.loc[0]
   df=df.rename(columns=dict(zip(df.columns, columns)))
