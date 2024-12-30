@@ -14,8 +14,7 @@ if file is not None and file.name.startswith("Revisiones DAOP"):
   df=pd.read_excel(file, sheet_name="Revisiones MR y MNR")
   df2=df
 
-    option = st.selectbox(
-    "Selecciona al ingeniero/a DAOP",
+  option = st.selectbox("Selecciona al ingeniero/a DAOP",
     ("LLQ", "JGM", "PPV", "RSP", "CGL", "NGM", "JMB" , "RGD"), )
 
   columns=df.loc[0]
